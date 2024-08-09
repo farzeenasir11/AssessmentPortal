@@ -1,0 +1,2 @@
+module UserAssessmentsHelper
+end

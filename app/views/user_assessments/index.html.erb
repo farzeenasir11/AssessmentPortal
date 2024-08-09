@@ -1,0 +1,27 @@
+<h1>My Assessments</h1>
+<%= link_to 'Home', root_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Assessment</th>
+      <th>Score</th>
+      <th>Attempt Assessment </th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_assessments.each do |user_assessment| %>
+      <tr>
+        <td><%= user_assessment.assessment.title %></td>
+        <td><%= user_assessment.score %></td>
+        <% if current_user.user? %>
+          <td><%= link_to user_assessment.assessment.title, attempt_project_assessment_path(user_assessment.assessment.project, user_assessment.assessment) %></td>
+        <% else %>
+          <td></td>
+        <% end %>
+        <td><%= link_to 'Show', user_assessment_path(user_assessment) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

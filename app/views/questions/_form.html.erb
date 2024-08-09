@@ -1,0 +1,25 @@
+<%= form_with(model: @question, url: project_assessment_questions_path(@project, @assessment), local: true) do |form| %>
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+
+  <h3>Options</h3>
+  <% @question.options.each_with_index do |option_fields, index| %>
+    <div class="field">
+      <%= form.fields_for :options, option_fields do |fields| %>
+        <div class="option">
+          <%= fields.label :content, "Option #{index + 1}" %>
+          <%= fields.text_field :content %>
+          <%= fields.label :is_right, "Correct Answer" %>
+          <%= fields.check_box :is_right %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit "Create Question" %>
+  </div>
+<% end %>
+

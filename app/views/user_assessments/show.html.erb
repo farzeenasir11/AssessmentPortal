@@ -1,0 +1,48 @@
+<h1>Assessment Results: <%= @user_assessment.user.username %></h1>
+<table>
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Your Answer</th>
+      <th>Correct Answer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_results.each do |user_result| %>
+      <tr>
+      <td>
+        <% if user_result.question.present? %>
+          <%= user_result.question.content %>
+        <% else %>
+          N/A
+        <% end %>
+      </td>
+      <td>
+        <% if user_result.option.present? %>
+          <%= user_result.option.content %>
+        <% else %>
+          N/A
+        <% end %>
+      </td>
+      <td>
+        <% if user_result.question.present? %>
+          <% correct_option = user_result.question.options.find_by(is_right: true) %>
+          <% if correct_option.present? %>
+            <%= correct_option.content %>
+          <% else %>
+            N/A
+          <% end %>
+        <% else %>
+          N/A
+        <% end %>
+      </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% if @assessment && @assessment.project %>
+  <%= link_to 'Back to Assessments', project_assessments_path(@assessment.project) %>
+<% else %>
+  <%= link_to 'Back to Home', root_path %>
+<% end %>

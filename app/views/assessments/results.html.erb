@@ -1,0 +1,13 @@
+<!-- app/views/assessments/results.html.erb -->
+<h1>Assessment Results</h1>
+<% @assessment.questions.each do |question| %>
+  <div>
+    <h3><%= question.content %></h3>
+    <% user_result = current_user.user_results.find_by(question: question) %>
+    <% if user_result %>
+      <p>Your answer: <%= user_result.option.content %> - <%= user_result.correct ? 'Correct' : 'Incorrect' %></p>
+    <% else %>
+      <p>You did not answer this question.</p>
+    <% end %>
+  </div>
+<% end %>

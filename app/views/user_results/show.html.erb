@@ -1,0 +1,28 @@
+<h1>Result Details</h1>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_assessment.user.email %>
+</p>
+<p>
+  <strong>Assessment:</strong>
+  <%= @user_assessment.assessment.title %>
+</p>
+<p>
+  <strong>Question:</strong>
+  <%= @question.content %>
+</p>
+<p>
+  <strong>Selected Option:</strong>
+  <%= @option.content %>
+</p>
+<p>
+  <strong>Correct:</strong>
+  <%= @user_result.correct ? 'Yes' : 'No' %>
+</p>
+<p>
+  <strong>Date Taken:</strong>
+  <%= @user_result.created_at.strftime('%Y-%m-%d %H:%M:%S') %>
+</p>
+
+<%= link_to 'Back to Results', user_results_path %>

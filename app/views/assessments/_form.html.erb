@@ -1,0 +1,34 @@
+<div class="form-container">
+  <%= form_with(model: [project,assessment], local: true) do |form| %>
+    <% if assessment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(assessment.errors.count, "error") %> prohibited this assessment from being saved:</h2>
+        <ul>
+          <% assessment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+
+    <div class="field">
+    <%= form.label :project_id %>
+    <%= form.collection_select :project_id, Project.all, :id, :project_name, prompt: 'Select a project' %>
+    </div>
+
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

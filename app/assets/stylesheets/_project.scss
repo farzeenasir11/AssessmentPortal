@@ -1,0 +1,16 @@
+.form-container {
+  max-width: 600px; 
+  margin: 0 auto;   
+  padding: 20px;    
+  border: 1px solid #ddd; 
+  border-radius: 5px; 
+  background-color: #f9f9f9; 
+}
+
+.form-container .field {
+  margin-bottom: 15px; 
+}
+
+.form-container .actions {
+  text-align: right; 
+}

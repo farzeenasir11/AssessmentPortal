@@ -1,0 +1,22 @@
+<h1>User Projects</h1>
+<%= link_to 'New User Project', new_user_project_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Project</th>
+      <th>Assigned On</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_projects.each do |user_project| %>
+      <tr>
+        <td><%= user_project.user.username %></td>
+        <td><%= user_project.project.project_name %></td>
+        <td><%= user_project.assigned_on %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

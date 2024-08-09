@@ -1,0 +1,6 @@
+<h1>Assessment: <%= @assessment.title %></h1>
+<p><%= @assessment.description %></p>
+
+<%= link_to 'Edit', edit_project_assessment_path(@assessment.project, @assessment) %> |
+<%= link_to 'Back', project_assessments_path(@assessment.project) %> |
+<%= link_to 'Attempt Assessment', attempt_project_assessment_path(@assessment.project, @assessment) %>

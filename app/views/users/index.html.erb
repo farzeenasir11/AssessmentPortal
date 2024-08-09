@@ -1,0 +1,19 @@
+<h1>Users for <%= @project.project_name %></h1>
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.username %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Back to Project', project_path(@project) %>

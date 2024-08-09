@@ -1,0 +1,22 @@
+<div class="assessment-form">
+  <h1>Attempting Assessment: <%= @assessment.title %></h1>
+  <%= form_with(url: submit_attempt_project_assessment_path(@assessment), method: :post, local: true) do |form| %>
+    <% @questions.each do |question| %>
+      <div class="question">
+        <p><%= question.content %></p>
+        <% question.options.each do |option| %>
+          <div class="option">
+            <%= form.radio_button "answers[#{question.id}]", option.id, id: "question_#{question.id}_option_#{option.id}" %>
+            <%= form.label "question_#{question.id}_option_#{option.id}", option.content %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= form.submit "Submit Assessment" %>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'Back', root_path, class: 'back-link' %>

@@ -1,0 +1,66 @@
+.assessment-form {
+  max-width: 800px;
+  margin: 0 auto;   
+  padding: 20px;     
+  border: 1px solid #ddd; 
+  border-radius: 5px; 
+  background-color: #f9f9f9; 
+}
+
+.question {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.question p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.option {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.option input[type="radio"] {
+  margin-right: 10px;
+}
+
+.option label {
+  font-size: 14px;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.actions input[type="submit"] {
+  background-color:#f2c4dd;;
+  color: #141313;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px; 
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+.actions input[type="submit"]:hover {
+  background-color: #fc9cd6;
+}
+
+.back-link {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  color: #007bff; 
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+}

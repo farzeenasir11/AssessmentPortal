@@ -1,0 +1,34 @@
+<h1>Assessment Results</h1>
+<%= link_to 'Home', root_path %>
+<!-- Search Form -->
+<%= search_form_for @search, url: user_results_path, method: :get do |f| %>
+  <div class="field">
+    <%= f.label :email_cont, 'Search by User Email' %>
+    <%= f.search_field :email_cont %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Search' %>
+  </div>
+<% end %>
+<%= link_to 'Back to Results', user_results_path %>
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Assessment</th>
+      <th>Result</th>
+      <th>Remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_results.each do |user_result| %>
+      <tr>
+        <td><%= user_result.user_assessment.user.email %></td>
+        <td><%= user_result.user_assessment.assessment.title %></td>
+        <td><%= link_to user_result.user_assessment.score, user_result_path(user_result) %></td>
+        <td><%= button_to 'Delete', user_assessment_path(user_result.user_assessment), method: :delete%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Back', root_path%>
