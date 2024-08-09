@@ -1,9 +1,9 @@
 <h1>Project: <%= @project.project_name %></h1>
 <p><%= @project.description %></p>
 
-<%= link_to 'Assessments' , project_assessments_path(@project) %> |
-<%= link_to 'Users', project_assessment_users_path(@project, @assessments) %>  |
-<%= link_to 'Edit', edit_project_path(@project) %>  | 
+<%= link_to 'Assessments' , project_assessments_path(@project) %>
+<%= link_to 'Users', project_assessment_users_path(@project, @assessments) %>
+<%= link_to 'Edit', edit_project_path(@project) %>
 <%= link_to 'Back', projects_path %>
 
 

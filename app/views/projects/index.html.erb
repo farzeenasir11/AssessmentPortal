@@ -1,7 +1,6 @@
 <h1>Projects</h1>
-<%= link_to 'Home', root_path%> |
+<%= link_to 'Home', root_path %>
 <%= link_to 'New Project', new_project_path %>
-
 <%= search_form_for @q, url: projects_path, method: :get do |f| %>
   <div class="field">
     <%= f.label :project_name_cont, 'Search by Project Name' %>
