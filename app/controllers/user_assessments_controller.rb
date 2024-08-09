@@ -1,11 +1,8 @@
 class UserAssessmentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user_assessment, only: [:show]
-  #after_action :verify_authorized
 
   def index
-    #@user_assessments = current_user.assessments
-    #authorize @user_assessments
     @user_assessments = policy_scope(UserAssessment).where(user: current_user)
   end
 

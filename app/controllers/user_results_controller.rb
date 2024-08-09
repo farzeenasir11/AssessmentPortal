@@ -4,12 +4,9 @@ class UserResultsController < ApplicationController
   
 
   def index
-    # @user_results = UserResult.includes(:user_assessment, user_assessment: [:user, :assessment, :question]).all
-    #changings going to be made
     @search = User.ransack(params[:q])
     @users = @search.result
     if current_user.admin?
-      # Fetch user results for the search query
       if params[:q].present? && params[:q][:email_cont].present?
         user_ids = @users.pluck(:id)
         @user_results = UserResult.joins(:user_assessment)
@@ -23,9 +20,6 @@ class UserResultsController < ApplicationController
                                 .where(user_assessments: { user_id: current_user.id })
                                 .includes(user_assessment: [:assessment])
     end
-
-    #@user_results = UserResult.all
-    
   end
 
   def show
