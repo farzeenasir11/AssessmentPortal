@@ -1,11 +1,9 @@
 class UserProjectsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_project
-  #before_action :set_user_project, only: %i[destroy]
   after_action :verify_authorized
 
   def index
-    #@user_projects = UserProject.all
     @user_projects = @project.users
     authorize @user_projects
   end
