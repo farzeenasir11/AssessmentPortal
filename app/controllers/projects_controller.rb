@@ -2,18 +2,14 @@ class ProjectsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_project, only: %i[show edit update destroy]
   before_action :check_admin, only: [:new, :create, :edit, :update, :destroy]
-  #after_action :verify_authorized
-
+  
   def index
-    #changins latest
     @q = Project.ransack(params[:q])
     @projects = @q.result
-    #@projects = Project.all
     authorize @projects
   end
 
   def show
-    #authorize @project
     @project = Project.find(params[:id])
     @assessments = @project.assessments
     @users = @project.users

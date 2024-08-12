@@ -72,5 +72,5 @@ gem "devise"
 gem "pundit"
 gem 'ransack'
 gem 'sassc-rails'
-
+gem "rubocop"
 
